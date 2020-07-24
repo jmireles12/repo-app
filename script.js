@@ -1,14 +1,5 @@
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer aa3d1f6acc68f7242af0a9b193c0b15f9bd8ada3");
-
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
 function getRepos(user) {
-    fetch(`https://api.github.com/users/${user}/repos?type=owner&sort=full_name&direction=desc`, requestOptions)
+    fetch(`https://api.github.com/users/${user}/repos`)
     .then(response => response.json())
     .then(responseJson => displayResult(responseJson))
     .catch(error => alert('Network error'));
